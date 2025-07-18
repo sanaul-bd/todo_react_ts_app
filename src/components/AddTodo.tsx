@@ -7,7 +7,7 @@ const AddTodo = () => {
     // func
     const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        // const handleAddTodo(todo);
+        const handleAddTodo(todo);
         setTodo("")
     };
     return (

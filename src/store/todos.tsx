@@ -1,10 +1,24 @@
-import { createContext } from "react";
+import { createContext, type ReactNode } from "react";
 
+export type TodosProviderProps = {
+    children: ReactNode
+}
 
+export type Todo = {
+    id: string;
+    task: string;
+    complete: boolean;
+    createdAt: Date;
+};
 
-export const todosContext = createContext(null);
-export const TodosProvider = ({ children }) => {
-    return <todosContext.Provider>
+export type TodosContext = {
+    todos: Todo[];
+    handleAddTodo: (task: string) => void
+}
+
+export const todosContext = createContext<TodosContext | null>(null);
+export const TodosProvider = ({ children }: TodosProviderProps) => {
+    return <todosContext.Provider value={{}}>
         {children}
     </todosContext.Provider>
 }
